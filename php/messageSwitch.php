@@ -18,4 +18,6 @@ switch($_POST["method"]){
     case "update":
         echo $Message->update($_POST["id"], $_POST["content"]);
         break;
+    default:
+        echo json_encode(false);
 }

@@ -38,13 +38,10 @@ class Member extends Session
         $member = $result->fetch_object();
 
         if (password_verify($password, $member->mPassword)) {
-            // $this->loginSet($member->mName,$member->mLevel,$member->mId);
-            // $this->session['memberName'] = $member->mName;
-            // $this->session['memberLevel']= $member->mLevel;
-            // $this->session['memberId']= $member->mId;
-            $_SESSION['memberName'] = $member->mName;
-            $_SESSION['memberLevel'] = $member->mLevel;
-            $_SESSION['memberId'] = $member->mId;
+            $memberName = $member->mName;
+            $memberLevel = $member->mLevel;
+            $memberId = $member->mId;
+            $this->loginSet($memberName, $memberLevel, $memberId);
             return json_encode(true);
         } else {
             return json_encode(false);

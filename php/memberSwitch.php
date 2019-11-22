@@ -18,4 +18,6 @@ switch($_POST["method"]){
     case "logout":
         echo $member->logout();
         break;
+    default:
+        echo json_encode(false);
 }

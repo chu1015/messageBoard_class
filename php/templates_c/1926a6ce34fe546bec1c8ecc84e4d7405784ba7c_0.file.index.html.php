@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2019-11-22 02:28:34
+/* Smarty version 3.1.33, created on 2019-11-22 10:30:57
   from 'C:\xampp\htdocs\chu\msgBoard_class\templates\index.html' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5dd739c284eb33_33170406',
+  'unifunc' => 'content_5dd7aad1a39d17_55020546',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1926a6ce34fe546bec1c8ecc84e4d7405784ba7c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\chu\\msgBoard_class\\templates\\index.html',
-      1 => 1574386106,
+      1 => 1574415053,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5dd739c284eb33_33170406 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5dd7aad1a39d17_55020546 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -246,6 +246,39 @@ echo $_prefixVariable21;?>
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         </div>
                     </div>
+                    <nav class="npage" aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <?php
+$_smarty_tpl->tpl_vars['num'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['num']->step = 1;$_smarty_tpl->tpl_vars['num']->total = (int) ceil(($_smarty_tpl->tpl_vars['num']->step > 0 ? $_smarty_tpl->tpl_vars['res']->value+1 - (1) : 1-($_smarty_tpl->tpl_vars['res']->value)+1)/abs($_smarty_tpl->tpl_vars['num']->step));
+if ($_smarty_tpl->tpl_vars['num']->total > 0) {
+for ($_smarty_tpl->tpl_vars['num']->value = 1, $_smarty_tpl->tpl_vars['num']->iteration = 1;$_smarty_tpl->tpl_vars['num']->iteration <= $_smarty_tpl->tpl_vars['num']->total;$_smarty_tpl->tpl_vars['num']->value += $_smarty_tpl->tpl_vars['num']->step, $_smarty_tpl->tpl_vars['num']->iteration++) {
+$_smarty_tpl->tpl_vars['num']->first = $_smarty_tpl->tpl_vars['num']->iteration === 1;$_smarty_tpl->tpl_vars['num']->last = $_smarty_tpl->tpl_vars['num']->iteration === $_smarty_tpl->tpl_vars['num']->total;?>
+                            <?php if ($_smarty_tpl->tpl_vars['page']->value == $_smarty_tpl->tpl_vars['num']->value) {?>
+                            <li class="page-item"><a class="page-link btn btn-primary disabled" href="?page=<?php ob_start();
+echo $_smarty_tpl->tpl_vars['num']->value;
+$_prefixVariable22 = ob_get_clean();
+echo $_prefixVariable22;?>
+"><?php ob_start();
+echo $_smarty_tpl->tpl_vars['num']->value;
+$_prefixVariable23 = ob_get_clean();
+echo $_prefixVariable23;?>
+</a></li>
+                            <?php } else { ?>
+                            <li class="page-item"><a class="page-link btn btn-primary active" href="?page=<?php ob_start();
+echo $_smarty_tpl->tpl_vars['num']->value;
+$_prefixVariable24 = ob_get_clean();
+echo $_prefixVariable24;?>
+"><?php ob_start();
+echo $_smarty_tpl->tpl_vars['num']->value;
+$_prefixVariable25 = ob_get_clean();
+echo $_prefixVariable25;?>
+</a></li>
+                            <?php }?>
+                            <?php }
+}
+?>
+                        </ul>
+                      </nav>
                 </main>
                 <div>
                     <?php if ($_smarty_tpl->tpl_vars['user']->value['name'] != "Guest") {?>

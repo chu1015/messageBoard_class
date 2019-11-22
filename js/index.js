@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  
   /**
    * 登出
    */
@@ -47,7 +48,7 @@ $(document).ready(function() {
               timer: 2000
             })
             .then(function() {
-              window.location.href = "index.php";
+              // window.location.href = "index.php";
             });
         } else {
           Swal.fire({
@@ -83,7 +84,7 @@ function del(e) {
             timer: 1000
           })
           .then(function() {
-            window.location.href = "index.php";
+            // window.location.href = "index.php";
           });
       } else {
         Swal.fire({
@@ -115,10 +116,10 @@ function upd(e) {
           .fire({
             type: "success",
             title: "留言已修改",
-            timer: 1000
+            timer: 1000,
           })
           .then(function() {
-            window.location.href = "index.php";
+            // window.location.href = "index.php";
           });
       } else {
         Swal.fire({

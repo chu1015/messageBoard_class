@@ -1,0 +1,74 @@
+.inout {
+  padding: 10px;
+}
+.login {
+  position: absolute;
+  right: 5%;
+  top: 1%;
+}
+.logout {
+  position: absolute;
+  right: 1%;
+  top: 1%;
+}
+.MessageBoard {
+  padding-left: 35%;
+  font-size: 5rem;
+}
+.date {
+  margin-right: 0;
+}
+.content {
+  border: 0;
+}
+.pre {
+  border: 0;
+}
+.textarea {
+  resize: none;
+}
+.newMsgForm {
+  margin-top: 5%;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+.newMsgTable {
+  border: 0;
+  width: 800;
+  align-content: center;
+  margin-left: 150px;
+  margin-right: 100px;
+  margin-top: 50px;
+}
+.newMsgTr {
+  background-color: cornflowerblue;
+  align-content: center;
+}
+.newMsgfont{
+    color: #FFFFFF;
+}
+.newMsgTitle{
+    width: 15%;
+}
+.newMsginput{
+    width: 85%;
+}
+body {
+    background: #f5f5f5
+}
+
+.text-white-50 {
+    color: rgba(255, 255, 255, .5);
+}
+
+.bg-blue {
+    background-color: #00b5ec;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}

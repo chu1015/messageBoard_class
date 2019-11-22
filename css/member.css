@@ -1,0 +1,32 @@
+.login {
+  margin: 100px;
+  margin-right: 5%;
+  text-align: center;
+  padding-top: 100px;
+  background-color: cadetblue;
+  height: 500px;
+  position: relative;
+}
+.register {
+  margin: 100px;
+  margin-left: 5%;
+  text-align: center;
+  padding-top: 100px;
+  background-color: skyblue;
+  height: 500px;
+  position: relative;
+}
+.row {
+  width: 80%;
+  margin-left: 10%;
+  align-content: center;
+}
+.input {
+  width: 80%;
+  margin: auto;
+  padding: 1%;
+}
+.btn-lg {
+  width: 75%;
+  margin: auto;
+}

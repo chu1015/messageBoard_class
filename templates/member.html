@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>登入</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+		integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
+	<script src="../js/member.js"></script>
+	<link rel="stylesheet" href="../css/member.css">
+</head>
+
+<body>
+	<div class="row">
+		<div class="col-md-4 login">
+			<h1>login</h1>
+			<div class="input">
+				<input type="account" class="form-control" id="loginAccount" name="account" placeholder="帳號" required/>
+				<span class='error2'></span>
+			</div>
+			<div class="input">
+				<input type="password" class="form-control" id="loginPassword" name="password" placeholder="密碼"required />
+				<span class='error4'></span>
+			</div>
+			<div>
+				<button class="btn btn-warning btn-lg btn-block" id="login" type="submit">登入</button>
+			</div>
+		</div>
+		<div class="col-md-4 register">
+			<h1>register</h1>
+			<div class="input">
+				<input type="text" class="form-control" id="name" placeholder="暱稱" required />
+				<span class="errorName"></span>
+			</div>
+			<div class="input">
+				<input type="account" class="form-control" id="account" placeholder="帳號" required />
+				<span class="errorAccount"></span>
+			</div>
+			<div class="input">
+				<input type="password" class="form-control" id="password" placeholder="密碼" required />
+				<span class="errorPw"></span>
+			</div>
+			<br>
+			<div>
+				<button class="btn btn-info btn-primary btn-lg " type="submit" id="register">確定</button>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

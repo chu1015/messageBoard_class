@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="../js/index.js"></script>
+    <link rel="stylesheet" href="../css/index.css">
+    <title>首頁</title>
+</head>
+
+<body>
+    <!-- 登入登出 -->
+    <div>
+        <div class="inout" id="inout">
+            {if {{$user.name}} == 'Guest'}
+            <h3>Guest</h3>
+            <a class="btn btn-info login" href="../templates/member.html">登入</a>
+            {else}
+            <h3>{{$user.name}}</h3>
+            <a class="btn btn-info logout" id="logout">登出</a>
+            {/if}
+        </div>
+    </div>
+    <br>
+    <div>
+        <div>
+            <div>
+                <main role="main" class="container bootdey.com">
+                    <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-blue rounded box-shadow">
+                        <img class="mr-3" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" width="48"
+                            height="48">
+                        <h1 class="MessageBoard">MessageBoard</h1>
+                    </div>
+                    <div class="my-3 p-3 bg-white rounded box-shadow">
+                        <h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
+                        <div id="msg">
+                        </div>
+                        <div id="speech">
+                            {foreach $all as $value}
+                            <!-- 內容 -->
+                            <div class="media text-muted pt-3">
+                                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                                    <h4><strong class="d-block text-gray-dark">發文者:{{$value.author}}</strong></h4>
+                                    <h5>主題:{{$value.subject}}</h5>
+                                    <small class="date">{{$value.date}}</small>
+                                    <pre class="content"><h5>內容:<br>&emsp;&emsp;{{$value.content}}</h5></pre>
+                                    {if $user.memberLevel === 1}
+                                    {if $value.memberId == $user.memberId}
+                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#myModal{{$value.id}}">修改</button>
+                                    <button type="button" onclick="del(`{{$value.id}}`)"
+                                        class="btn btn-danger">刪除</button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="myModal{{$value.id}}" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close"
+                                                        data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title">{$value.subject}</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>內容:</p>
+                                                    <pre class="pre"><textarea class="textarea" id="content{{$value.id}}" cols="51" rows="6"
+                                                    required>{{$value.content}}</textarea></pre>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" onclick="upd(`{{$value.id}}`)"
+                                                        class="btn btn-success" data-dismiss="modal">確認</button>
+                                                    <button type="button" class="btn btn-default"
+                                                        data-dismiss="modal">取消</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    {else}
+                                    <button type="button" onclick="del(`{{$value.id}}`)"
+                                        class="btn btn-danger">刪除</button>
+                                    {/if}
+                                    {else if $user.name != "Guest"}
+                                    {if $value.memberId == $user.memberId}
+                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#myModal{{$value.id}}">修改</button>
+                                    <button type="button" onclick="del(`{{$value.id}}`)"
+                                        class="btn btn-danger">刪除</button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="myModal{{$value.id}}" role="dialog">
+                                        <div class="modal-dialog">
+
+                                            <!-- Modal content-->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close"
+                                                        data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title">{{$value.subject}}</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>內容:</p>
+                                                    <pre class="pre"><textarea class="textarea" id="content{{$value.id}}" cols="51" rows="6"
+                                                    required>{{$value.content}}</textarea></pre>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" onclick="upd(`{{$value.id}}`)"
+                                                        class="btn btn-success" data-dismiss="modal">確認</button>
+                                                    <button type="button" class="btn btn-default"
+                                                        data-dismiss="modal">取消</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    {/if}
+                                    {/if}
+
+                                </p>
+                            </div>
+                            {/foreach}
+                        </div>
+                    </div>
+                </main>
+                <div>
+                    {if $user.name != "Guest"}
+                    <form class="newMsgForm">
+                        <table class="newMsgTable">
+                            <tr class="newMsgTr">
+                                <td colspan="2">
+                                    <font class="newMsgfont">輸入新留言</font>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="newMsgTitle">主題</td>
+                                <td class="newMsginput"><input type="text" id="subject" size="50" required></td>
+                            </tr>
+                            <tr>
+                                <td class="newMsgTitle">內容</td>
+                                <td class="newMsginput"><textarea class="textarea" id="content" cols="51" rows="6"
+                                        required></textarea></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <input class="btn btn-info btn-primary" id="message" type="button" value="留言"
+                                        onclick="">
+                                    <input class="btn btn-info btn-primary" type="reset" value="重新輸入">
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                    {/if}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
